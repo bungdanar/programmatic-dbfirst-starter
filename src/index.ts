@@ -5,6 +5,7 @@ try {
   Environment.checkEnvVariables()
 } catch (error) {
   console.error(error)
+  process.exit(1)
 }
 
 const auto = Database.auto([...process.argv.slice(2)])
