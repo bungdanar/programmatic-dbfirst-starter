@@ -1,13 +1,14 @@
-const { database } = require('./utils/database')
-const { checkEnvVariables } = require('./utils/environment')
+import { Database } from './utils/database'
+import { Environment } from './utils/environment'
 
 try {
-  checkEnvVariables()
+  Environment.checkEnvVariables()
 } catch (error) {
   console.error(error)
 }
 
-const auto = database([...process.argv.slice(2)])
+const auto = Database.auto([...process.argv.slice(2)])
+
 auto
   .run()
   .then((data) => {
